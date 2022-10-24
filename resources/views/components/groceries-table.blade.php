@@ -19,7 +19,7 @@
         <tr class="bg-white border-b hover:bg-gray-50">
           <td class="p-4 w-4">
             <div class="flex items-center">
-              <input id="checkbox-table-search-1" type="checkbox" {{ $grocery->checked == 1 ? 'checked' : '' }}
+              <input id="checkbox-table-search-1" type="checkbox" {{ $grocery->checked == 1 ? 'checked' : '' }} onclick="document.getElementById('toggle-check-{{ $grocery->id }}').submit()"
                 class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2">
               <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
             </div>
@@ -31,6 +31,9 @@
             {{ $grocery->nominal }}
           </td>
         </tr>
+        <form action="/groceries/toggle-check/{{ $grocery->id }}" method="POST" id="toggle-check-{{ $grocery->id }}">
+          @csrf
+        </form>
       @endforeach
     </tbody>
   </table>

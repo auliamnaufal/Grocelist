@@ -59,6 +59,7 @@
 
   <x-slot name="scripts">
     <script>
+
       function decrement(e) {
         e.preventDefault()
 

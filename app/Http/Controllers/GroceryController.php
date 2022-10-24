@@ -83,6 +83,15 @@ class GroceryController extends Controller
         //
     }
 
+    public function toggleCheck(Request $request, Grocery $grocery)
+    {
+        $grocery->update([
+            'checked' => !$grocery['checked']
+        ]);
+
+        return back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

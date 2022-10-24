@@ -28,4 +28,6 @@ Route::get('/dashboard', function () {
 
 Route::post('/groceries', [GroceryController::class, 'store'])->middleware(['auth', 'verified']);
 
+Route::post('/groceries/toggle-check/{grocery}', [GroceryController::class, 'toggleCheck']);
+
 require __DIR__.'/auth.php';
