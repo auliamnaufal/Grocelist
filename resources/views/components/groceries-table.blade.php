@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       @foreach ($groceries as $grocery)
-        <tr class="bg-white border-b hover:bg-gray-50 0">
+        <tr class="bg-white border-b hover:bg-gray-50">
           <td class="p-4 w-4">
             <div class="flex items-center">
               <input id="checkbox-table-search-1" type="checkbox" {{ $grocery->checked == 1 ? 'checked' : '' }}
