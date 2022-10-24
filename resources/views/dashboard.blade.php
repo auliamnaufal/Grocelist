@@ -50,7 +50,7 @@
           </form>
         </div>
 		<div class="bg-white overflow-hidden shadow-sm p-6">
-			<x-groceries-table />
+			<x-groceries-table :groceries="$groceries" />
 		</div>
       </div>
     </div>
