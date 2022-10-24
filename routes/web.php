@@ -26,6 +26,8 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/{user}/groceries', [GroceryController::class, 'show']);
+
 Route::post('/groceries', [GroceryController::class, 'store'])->middleware(['auth', 'verified']);
 
 Route::post('/groceries/toggle-check/{grocery}', [GroceryController::class, 'toggleCheck']);

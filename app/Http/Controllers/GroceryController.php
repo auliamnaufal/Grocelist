@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grocery;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,9 +56,11 @@ class GroceryController extends Controller
      * @param  \App\Models\Grocery  $grocery
      * @return \Illuminate\Http\Response
      */
-    public function show(Grocery $grocery)
+    public function show(User $user)
     {
-        //
+        return view('show', [
+            'groceries' => $user
+        ]);
     }
 
     /**

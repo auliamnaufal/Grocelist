@@ -1,7 +1,7 @@
 @props(['groceries'])
 <div class="overflow-x-auto relative shadow-sm sm:rounded-lg mt-4">
   <table class="w-full text-sm text-left text-gray-500 ">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-100 ">
       <tr>
         <th scope="col" class="p-4">
           Check
