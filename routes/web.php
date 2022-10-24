@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GroceryController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,5 +25,7 @@ Route::get('/dashboard', function () {
         'groceries' => Auth::user()->groceries,
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::post('/groceries', [GroceryController::class, 'store']);
 
 require __DIR__.'/auth.php';

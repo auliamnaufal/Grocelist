@@ -21,7 +21,8 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white border-b border-gray-200">
-          <form action="" class="space-y-4">
+          <form action="/groceries" method="POST" class="space-y-4">
+            @csrf
             <div class="flex items-center justify-between">
               <div class="form-control w-3/4">
                 <label for="default-input" class="block mb-2 text-sm font-medium text-black">Grocery Item</label>

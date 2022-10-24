@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grocery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GroceryController extends Controller
 {
@@ -35,7 +36,17 @@ class GroceryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'name' => 'required|max:255',
+            'nominal' => 'required'
+        ]);
+
+        $attributes['user_id'] = Auth::id();
+        $attributes['checked'] = false;
+
+        Grocery::create($attributes);
+
+        return back();
     }
 
     /**
