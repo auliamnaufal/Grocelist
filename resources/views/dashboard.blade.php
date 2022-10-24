@@ -50,15 +50,25 @@
               class="w-24 rounded bg-blue-400 py-2 px-1 font-semibold text-white hover:bg-blue-500 transition duration-1">Add</button>
           </form>
         </div>
-		<div class="bg-white overflow-hidden shadow-sm p-6">
-			<x-groceries-table :groceries="$groceries" />
-		</div>
+        <div class="bg-white overflow-hidden shadow-sm p-6">
+          <x-groceries-table :groceries="$groceries" />
+          <input type="hidden" value="test-{{ auth()->user()->id }}" id="shareList">
+          <button onclick="copyToClipboard()" class="mt-6 bg-transparent border-none text-blue-600">Share Groceries
+            list</button>
+        </div>
       </div>
     </div>
   </div>
 
   <x-slot name="scripts">
     <script>
+      function copyToClipboard() {
+        var copyText = document.getElementById("shareList");
+
+        copyText.select();
+
+        navigator.clipboard.writeText(copyText.value);
+      }
 
       function decrement(e) {
         e.preventDefault()
