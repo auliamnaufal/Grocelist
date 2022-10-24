@@ -52,6 +52,7 @@
         </div>
         <div class="bg-white overflow-hidden shadow-sm p-6">
           <x-groceries-table :groceries="$groceries" />
+
           <input type="hidden" value="test-{{ auth()->user()->id }}" id="shareList">
           <button onclick="copyToClipboard()" class="mt-6 bg-transparent border-none text-blue-600">Share Groceries
             list</button>
@@ -59,6 +60,8 @@
       </div>
     </div>
   </div>
+
+  <x-toast />
 
   <x-slot name="scripts">
     <script>
@@ -68,6 +71,12 @@
         copyText.select();
 
         navigator.clipboard.writeText(copyText.value);
+
+        document.getElementById('toast-simple').style.display = 'flex'
+        
+        setTimeout(() => {
+          document.getElementById('toast-simple').style.display = 'none'
+        }, 3000);
       }
 
       function decrement(e) {
