@@ -53,7 +53,7 @@
         <div class="bg-white overflow-hidden shadow-sm p-6">
           <x-groceries-table :groceries="$groceries" />
 
-          <input type="hidden" value="test-{{ auth()->user()->id }}" id="shareList">
+          <input type="hidden" value="http://127.0.0.1:8000/{{ auth()->user()->id }}/groceries" id="shareList">
           <button onclick="copyToClipboard()" class="mt-6 bg-transparent border-none text-blue-600">Share Groceries
             list</button>
         </div>
