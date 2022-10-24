@@ -49,7 +49,7 @@
               class="w-24 rounded bg-blue-400 py-2 px-1 font-semibold text-white hover:bg-blue-500 transition duration-1">Add</button>
           </form>
         </div>
-		<div class="bg-white overflow-hidden shadow-sm">
+		<div class="bg-white overflow-hidden shadow-sm p-6">
 			<x-groceries-table />
 		</div>
       </div>
