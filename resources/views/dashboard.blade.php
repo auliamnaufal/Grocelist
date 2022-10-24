@@ -73,7 +73,7 @@
         navigator.clipboard.writeText(copyText.value);
 
         document.getElementById('toast-simple').style.display = 'flex'
-        
+
         setTimeout(() => {
           document.getElementById('toast-simple').style.display = 'none'
         }, 3000);

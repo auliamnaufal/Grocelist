@@ -103,6 +103,7 @@ class GroceryController extends Controller
      */
     public function destroy(Grocery $grocery)
     {
-        //
+        $grocery->delete();
+        return back();
     }
 }

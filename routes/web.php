@@ -30,6 +30,8 @@ Route::get('/{user}/groceries', [GroceryController::class, 'show']);
 
 Route::post('/groceries', [GroceryController::class, 'store'])->middleware(['auth', 'verified']);
 
-Route::post('/groceries/toggle-check/{grocery}', [GroceryController::class, 'toggleCheck']);
+Route::delete('/groceries/{grocery}', [GroceryController::class, 'destroy'])->middleware(['auth', 'verified']);
+
+Route::post('/groceries/toggle-check/{grocery}', [GroceryController::class, 'toggleCheck'])->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

@@ -12,6 +12,9 @@
         <th scope="col" class="py-3 px-6">
           Nominal
         </th>
+        <th scope="col" class="py-3 px-6">
+          Action
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +32,13 @@
           </th>
           <td class="py-4 px-6">
             {{ $grocery->nominal }}
+          </td>
+          <td class="py-4 px-6 text-red-400">
+            <form action="/groceries/{{ $grocery->id }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="border-none bg-transparent text-red-400 hover:text-red-500 transition duration-.5">Delete</button>
+            </form>
           </td>
         </tr>
         <form action="/groceries/toggle-check/{{ $grocery->id }}" method="POST" id="toggle-check-{{ $grocery->id }}">
