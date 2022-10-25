@@ -25,8 +25,8 @@
 
           <div class="flex items-center justify-between mt-6">
 
-            <button onclick="confirm('are you sure want to delete all groceries item?')" class="text-red-600 text-md"> <a
-                href="/groceries/delete-all/permanent">Permanently Delete All</a></button>
+            <button onclick="return confirm('are you sure want to delete all groceries item permanently?')"
+              class="text-red-600 text-md"> <a href="/groceries/delete-all/permanent">Permanently Delete All</a></button>
           </div>
         </div>
       </div>
