@@ -63,6 +63,13 @@ class GroceryController extends Controller
         ]);
     }
 
+    public function showDelete()
+    {
+        return view('deleted-item', [
+            'groceries' => Grocery::where('user_id', Auth::id())->onlyTrashed()->get()
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -110,6 +117,22 @@ class GroceryController extends Controller
     public function deleteAll()
     {
         Grocery::where('user_id', Auth::id())->delete();
+
+        return back();
+    }
+
+    public function deleteAllPermanent()
+    {
+        Grocery::where('user_id', Auth::id())->where('deleted_at', '!=', null)->forceDelete();
+
+        return back();
+    }
+
+    public function restoreItem($id)
+    {
+        Grocery::withTrashed()
+        ->find($id)
+        ->restore();
 
         return back();
     }

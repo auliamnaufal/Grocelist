@@ -57,7 +57,8 @@
           <div class="flex items-center justify-between mt-6">
             <button onclick="copyToClipboard()" class="bg-transparent border-none text-blue-600">Share Groceries
               list</button>
-              <button onclick="confirm('are you sure want to delete all groceries item?')" class="text-red-600 text-md"> <a href="/groceries/delete-all">Delete All</a></button>
+            <button onclick="confirm('are you sure want to delete all groceries item?')" class="text-red-600 text-md">
+              <a href="/groceries/delete-all">Delete All</a></button>
           </div>
         </div>
       </div>
@@ -122,10 +123,11 @@
       });
 
       document.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-              event.preventDefault();
-              document.getElementById("add-grocery").submit();
-            }
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("add-grocery").submit();
+        }
+      });
     </script>
   </x-slot>
 </x-app-layout>

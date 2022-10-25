@@ -28,12 +28,18 @@ Route::get('/dashboard', function () {
 
 Route::get('/{user}/groceries', [GroceryController::class, 'show']);
 
-Route::get('/groceries/delete-all', [GroceryController::class, 'deleteAll']);
+Route::get('/deleted-item', [GroceryController::class, 'showDelete'])->name('deleted-item')->middleware(['auth', 'verified']);
+
+Route::get('/groceries/delete-all', [GroceryController::class, 'deleteAll'])->middleware(['auth', 'verified']);
+
+Route::get('/groceries/delete-all/permanent', [GroceryController::class, 'deleteAllPermanent']);
 
 Route::post('/groceries', [GroceryController::class, 'store'])->middleware(['auth', 'verified']);
 
 Route::delete('/groceries/{grocery}', [GroceryController::class, 'destroy'])->middleware(['auth', 'verified']);
 
 Route::post('/groceries/toggle-check/{grocery}', [GroceryController::class, 'toggleCheck'])->middleware(['auth', 'verified']);
+
+Route::post('/groceries/{grocery}/restore', [GroceryController::class, 'restoreItem'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
