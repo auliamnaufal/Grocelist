@@ -28,6 +28,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/{user}/groceries', [GroceryController::class, 'show']);
 
+Route::get('/groceries/delete-all', [GroceryController::class, 'deleteAll']);
+
 Route::post('/groceries', [GroceryController::class, 'store'])->middleware(['auth', 'verified']);
 
 Route::delete('/groceries/{grocery}', [GroceryController::class, 'destroy'])->middleware(['auth', 'verified']);

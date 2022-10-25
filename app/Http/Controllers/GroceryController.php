@@ -106,4 +106,11 @@ class GroceryController extends Controller
         $grocery->delete();
         return back();
     }
+
+    public function deleteAll()
+    {
+        Grocery::where('user_id', Auth::id())->delete();
+
+        return back();
+    }
 }

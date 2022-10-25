@@ -21,7 +21,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white border-b border-gray-200">
-          <form action="/groceries" method="POST" class="space-y-4">
+          <form action="/groceries" method="POST" class="space-y-4" id="add-grocery">
             @csrf
             <div class="flex items-center justify-between">
               <div class="form-control w-3/4">
@@ -54,8 +54,11 @@
           <x-groceries-table :groceries="$groceries" />
 
           <input type="hidden" value="http://127.0.0.1:8000/{{ auth()->user()->id }}/groceries" id="shareList">
-          <button onclick="copyToClipboard()" class="mt-6 bg-transparent border-none text-blue-600">Share Groceries
-            list</button>
+          <div class="flex items-center justify-between mt-6">
+            <button onclick="copyToClipboard()" class="bg-transparent border-none text-blue-600">Share Groceries
+              list</button>
+              <button onclick="confirm('are you sure want to delete all groceries item?')" class="text-red-600 text-md"> <a href="/groceries/delete-all">Delete All</a></button>
+          </div>
         </div>
       </div>
     </div>
@@ -117,6 +120,12 @@
       incrementButtons.forEach(btn => {
         btn.addEventListener("click", increment);
       });
+
+      document.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              document.getElementById("add-grocery").submit();
+            }
     </script>
   </x-slot>
 </x-app-layout>
