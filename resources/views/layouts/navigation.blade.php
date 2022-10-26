@@ -40,6 +40,14 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
+                        <form method="POST" action="/{{ auth()->user()->id }}/subscribe">
+                            @csrf
+                            <x-dropdown-link href="/{{ auth()->user()->id }}/subscribe"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ auth()->user()->level == 'subscribed' ? 'Unsubscribe' : 'Subscribe Now!' }}
+                            </x-dropdown-link>
+                        </form>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 

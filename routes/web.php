@@ -42,4 +42,6 @@ Route::post('/groceries/toggle-check/{grocery}', [GroceryController::class, 'tog
 
 Route::post('/groceries/{grocery}/restore', [GroceryController::class, 'restoreItem'])->middleware(['auth']);
 
+Route::post('/{user}/subscribe', [GroceryController::class, 'subscribeUser'])->middleware(['auth']);
+
 require __DIR__.'/auth.php';

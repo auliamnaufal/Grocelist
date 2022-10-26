@@ -131,8 +131,21 @@ class GroceryController extends Controller
     public function restoreItem($id)
     {
         Grocery::withTrashed()
-        ->find($id)
-        ->restore();
+            ->find($id)
+            ->restore();
+
+        return back();
+    }
+
+    public function subscribeUser(User $user)
+    {
+        if ($user->level == 'unsubscribed') {
+            $user->level = 'subscribed';
+
+        } else if ($user->level == 'subscribed') {
+            $user->level = 'unsubscribed';
+        }
+        $user->save();
 
         return back();
     }
